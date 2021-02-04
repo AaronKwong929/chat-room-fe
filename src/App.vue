@@ -1,5 +1,6 @@
 <template>
     <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+    <router-view />
 </template>
 
 <script lang="ts">
@@ -8,12 +9,11 @@ import HelloWorld from "@/components/HelloWorld.vue";
 
 export default defineComponent({
     name: "App",
+
     components: {
         HelloWorld,
     },
 });
 </script>
 
-<style>
-
-</style>
+<style lang="scss" scoped></style>

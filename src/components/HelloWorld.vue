@@ -54,6 +54,7 @@ import { ref, defineComponent } from "vue";
 
 export default defineComponent({
     name: "HelloWorld",
+
     props: {
         msg: {
             type: String,
@@ -63,7 +64,8 @@ export default defineComponent({
             },
         },
     },
-    setup: () => {
+
+    setup() {
         const count = ref(0);
         return { count };
     },
