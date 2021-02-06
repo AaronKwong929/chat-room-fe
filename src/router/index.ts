@@ -1,24 +1,16 @@
-// 不需要 router
-
 import { createWebHashHistory, createRouter, RouteRecordRaw } from "vue-router";
 
 const history = createWebHashHistory(),
     routes: RouteRecordRaw[] = [
         {
-            name: `Home`,
-            path: `/home`,
-            component: () => import(`@/views/Home.vue`),
-        },
-
-        {
-            name: `About`,
-            path: `/home`,
-            component: () => import(`@/views/Home.vue`),
+            name: `Chat`,
+            path: `/`,
+            component: () => import(`@/views/Chat.vue`),
         },
 
         {
             path: "/:catchAll(.*)",
-            redirect: `/home`,
+            redirect: `/`,
         },
     ],
     router = createRouter({
