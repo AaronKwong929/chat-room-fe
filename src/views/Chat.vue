@@ -1,21 +1,90 @@
 <template>
-    <div class="router--content">首页</div>
+    <div
+        class="chat"
+        :style="{
+            '--bg-image': `url('${backgroundImage}')`,
+        }"
+    >
+        <div class="chat--sidebar">
+            <chat-sidebar />
+        </div>
+
+        <div class="chat--list">聊天列表</div>
+
+        <div class="chat--details">聊天区域</div>
+    </div>
 </template>
 
 <script>
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
+import { BACKGROUND_IMAGE } from '@/constants/index';
+
+import ChatSidebar from '@/components/ChatSidebar.vue';
+
 export default defineComponent({
-    name: `Home`,
+    name: `Chat`,
+
+    components: {
+        ChatSidebar,
+    },
+
+    setup() {
+        const backgroundImage = ref(BACKGROUND_IMAGE);
+        return {
+            backgroundImage,
+        };
+    },
 });
 </script>
 
 <style lang="scss" scoped>
-.router--content {
+.chat {
     flex: 1;
-    // background-color: rgba(0, 0, 0, 0.3);
     display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
     overflow: hidden;
-    // border-radius: 16px;
-    padding: 10px;
+    box-shadow: 10px 20px 80px rgba(0, 0, 0, 0.8);
+    border-radius: 6px;
+
+    &::after {
+        content: '';
+        background: var(--bg-image) 0 / cover fixed;
+        position: absolute;
+        object-fit: cover;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        filter: blur(5px);
+        // transform: scale(1.08);
+        z-index: -1;
+        margin: -30px;
+    }
+
+    &--sidebar {
+        flex: 1;
+        background: rgba(0, 0, 0, 0.05);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        overflow: hidden;
+    }
+
+    &--list {
+        flex: 3;
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        background: lightcoral;
+    }
+
+    &--details {
+        flex: 10;
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        background: lightcyan;
+    }
 }
 </style>
