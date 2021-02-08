@@ -8,7 +8,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { BACKGROUND_IMAGE } from '@/constants/index';
+import { BACKGROUND_IMAGE } from '@/constants/index.ts';
 
 export default defineComponent({
     name: 'App',

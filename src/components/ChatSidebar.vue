@@ -5,12 +5,22 @@
         </div>
 
         <div class="sidebar--operate-area">
-            <el-button
-                icon="el-icon-more"
-                @click="handleClick"
-                size="small"
-                plain
-                round
+            <i
+                title="Info"
+                class="iconfont icon-prompt icon"
+                @click="handleClick(1)"
+            />
+
+            <i
+                title="Github"
+                class="iconfont icon-github icon"
+                @click="handleClick(2)"
+            />
+
+            <i
+                title="退出登录"
+                class="iconfont icon-sign-out icon"
+                @click="handleClick(3)"
             />
         </div>
     </div>
@@ -25,9 +35,10 @@ export default defineComponent({
 
     setup() {
         const avatarUrl = ref(AVATAR_URL);
-        const handleClick = (e: Event) => {
+        const handleClick = (e: number): void => {
             console.log(e);
         };
+
         return {
             avatarUrl,
             handleClick,
@@ -45,9 +56,10 @@ export default defineComponent({
 
     &--avatar {
         margin-top: 20px;
+        transition: all 0.3s;
 
         &:hover {
-            transform: scale(1.1);
+            transform: scale(1.2);
             transition: all 0.3s;
             cursor: pointer;
         }
@@ -55,10 +67,29 @@ export default defineComponent({
 
     &--operate-area {
         margin-top: auto;
+        margin-bottom: 20px;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
+
+        .icon {
+            cursor: pointer;
+            font-weight: 100;
+            font-size: 2rem;
+            color: white;
+            transition: all 0.3s;
+            margin-top: 20px;
+
+            &:first-child {
+                margin-top: 0;
+            }
+
+            &:hover {
+                transition: all 0.3s;
+                color: #3a8fb7;
+            }
+        }
     }
 }
 </style>

@@ -9,7 +9,9 @@
             <chat-sidebar />
         </div>
 
-        <div class="chat--list">聊天列表</div>
+        <div class="chat--contact-list">
+            <chat-contact-list />
+        </div>
 
         <div class="chat--details">聊天区域</div>
     </div>
@@ -20,12 +22,14 @@ import { defineComponent, ref } from 'vue';
 import { BACKGROUND_IMAGE } from '@/constants/index';
 
 import ChatSidebar from '@/components/ChatSidebar.vue';
+import ChatContactList from '@/components/ChatContactList.vue';
 
 export default defineComponent({
     name: `Chat`,
 
     components: {
         ChatSidebar,
+        ChatContactList,
     },
 
     setup() {
@@ -57,26 +61,25 @@ export default defineComponent({
         right: 0;
         bottom: 0;
         filter: blur(5px);
-        // transform: scale(1.08);
         z-index: -1;
         margin: -30px;
     }
 
     &--sidebar {
         flex: 1;
-        background: rgba(0, 0, 0, 0.05);
+        background: rgba(0, 0, 0, 0.7);
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         overflow: hidden;
     }
 
-    &--list {
+    &--contact-list {
         flex: 3;
+        background: rgba(0, 0, 0, 0.3);
         overflow: hidden;
         display: flex;
-        flex-direction: row;
-        background: lightcoral;
+        flex-direction: column;
     }
 
     &--details {
